@@ -4,20 +4,10 @@ import cefet.exceptions.ValorInvalidoException;
 import cefet.opcoes.JogarPrisao;
 import cefet.opcoes.Vender;
 
-/**
- * <p>
- * Represents the option available in the game to the player.
- * </p>
- * 
- */
+/* representa a opcao disponivel no jogo para o jogador */
 public class JogoFactoryVender extends JogoFactory{
 	
-	/**
-	 * Shows the options of facade of the game to the player.
-	 * @param opcao
-	 * @param jogo
-	 * @return boolean
-	 */
+	/* mostra as opcoes da fachada do jogo para o jogador */
 	public boolean escolheOpcao(String opcao, JogoFacade jogo) {
 		opcao = opcao.replaceAll("\\s+", "").toLowerCase();
 		switch (opcao) {
@@ -33,7 +23,7 @@ public class JogoFactoryVender extends JogoFactory{
 		case "sair":
 			boolean escolha;
 			try {
-				escolha = jogo.simOuNao("Voc� realmente quer sair");
+				escolha = jogo.simOuNao("Voce realmente quer sair");
 				if (escolha) {
 					setOpcaoSair();
 				}
@@ -50,24 +40,15 @@ public class JogoFactoryVender extends JogoFactory{
 		return true;
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Sell(Vender)".
-	 * </p>
-	 */
+	/* define a opcao vender */
 	private void setOpcaoVender() {
 		this.op = new Vender();
 		
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Play(Jogar)".
-	 * </p>
-	 */
+	/* define a opcao jogar */
 	@Override
 	public void setOpcaoJogar() {
 		this.op = new JogarPrisao();
 	}
-
 }

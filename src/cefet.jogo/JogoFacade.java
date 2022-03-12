@@ -13,13 +13,7 @@ import cefet.exceptions.ValorInvalidoException;
 import cefet.lougradouros.Construtora;
 import cefet.lougradouros.Posicao;
 
-
-/**
- * <p>
- * Represents the facade of the games.
- * </p>
- *
- */
+/* representa a fachada dos jogos */
 public class JogoFacade {
 
 	protected static final Scanner in = new Scanner(System.in);
@@ -37,35 +31,18 @@ public class JogoFacade {
 		return instance;
 	}
 
-	/**
-	 * <p>
-	 * Shows the facade of the game to the players.
-	 * </p>
-	 * 
-	 * @param
-	 */
+	/* mostra a fachada do jogo para os jogadores */
 	public JogoFacade() {
 		listaJogadores = new LinkedList<Jogador>();
 		ultimosDados = new int[2];
 	}
 
-	/**
-	 * <p>
-	 * Convert to String.
-	 * </p>
-	 * 
-	 */
+	/* converte para string */
 	public String input() {
 		return in.nextLine();
 	}
 
-	/**
-	 * <p>
-	 * Convert to integer.
-	 * </p>
-	 * 
-	 * @throws IOException 
-	 */
+	/* converte para inteiro */
 	public int inputInt() throws NumberFormatException {
 		String textorecebido = in.nextLine();
 		String outraString = textorecebido.replaceAll("\\s+", "");
@@ -75,42 +52,22 @@ public class JogoFacade {
 		return Integer.parseInt(outraString);
 	}
 
-	/**
-	 * <p>
-	 * Add a new player.
-	 * </p>
-	 * 
-	 */
+	/* adiciona um novo jogador */
 	public void addJogador(Jogador e) {
 		this.listaJogadores.add(e);
 	}
 
-	/**
-	 * <p>
-	 * Add the player who is at the beginning of the queue to the end.
-	 * </p>
-	 * 
-	 */
+	/* adiciona o jogador que esta no inicio da partida ao final */
 	public void pollJogador() {
 		this.listaJogadores.add(this.listaJogadores.pollFirst());
 	}
 
-	/**
-	 * <p>
-	 * Removes the player.
-	 * </p>
-	 * 
-	 */
+	/* remove o jogador */
 	public void removeJogador() {
 		this.listaJogadores.remove(this.JogadorAtual());
 	}
 
-	/**
-	 * <p>
-	 * Throws the dices.
-	 * </p>
-	 * 
-	 */
+	/* joga os dados */
 	public Dado getDado() {
 		return this.dado;
 	}
@@ -119,69 +76,37 @@ public class JogoFacade {
 		instance = null;
 	}
 
-	/**
-	 * <p>
-	 * Verifies if the player is in prison.
-	 * </p>
-	 *
-	 */
+	/* verifica se o jogador esta na prisao */
 	public boolean verificarSeTaNaPrisao(Jogador j) {
 		return this.tabuleiro.getPosicoeDoTabuleiro(j.getPosicao()).getTipo().equals("Pris�o");
 	}
 
-	/**
-	 * <p>
-	 * This method checks if there is any other player using the color passed as a
-	 * parameter.
-	 * </p>
-	 * 
-	 * @param cor
-	 * @throws ExisteJogadorComEstaCorException
-	 */
-
+	/*  checa se tem algum outro jogador usando a cor passada como parametro */
 	public void verificaSeExisteJogadorComEstaCor(String cor) throws ExisteJogadorComEstaCorException {
 		for (Jogador j : this.listaJogadores) {
 			if (j.getCor().equals(cor)) {
 				throw new ExisteJogadorComEstaCorException(
-						"J� existe um jogador utilizando esta cor. Tente novamente!");
+						"Ja existe um jogador utilizando esta cor. Tente novamente!");
 			}
 		}
 	}
 
-	/**
-	 * <p>
-	 * Verifies if the chosen color is still available.
-	 * </p>
-	 * 
-	 * @param String cor
-	 * @throws CorValidaException
-	 * @return true if the color passed as a parameter is within expected colors
-	 */
+	/* verifica se a cor escolhida ainda esta disponivel */
 	public boolean verificaSeAhCorEhValida(String cor) throws CorValidaException {
 		if (cor.equalsIgnoreCase("preto") || cor.equalsIgnoreCase("branco") || cor.equalsIgnoreCase("vermelho")
 				|| cor.equals("verde") || cor.equalsIgnoreCase("azul") || cor.equalsIgnoreCase("amarelo")
 				|| cor.equalsIgnoreCase("laranja") || cor.equals("rosa")) {
 			return true;
 		}
-		throw new CorValidaException("Esta cor n�o � v�lida. Tente novamente uma cor dispon�vel!");
+		throw new CorValidaException("Esta cor nao eh valida. Tente novamente uma cor disponivel!");
 	}
 
-	/**
-	 * <p>
-	 * The current player.
-	 * </p>
-	 * 
-	 */
+	/* mostra o jogador atual */
 	public Jogador JogadorAtual() {
 		return this.listaJogadores.getFirst();
 	}
 
-	/**
-	 * <p>
-	 * Calls an event.
-	 * </p>
-	 * 
-	 */
+	/* chama um evento */
 	public void chamarEvento() {
 		this.tabuleiro.getPosicoeDoTabuleiro(this.JogadorAtual().getPosicao()).evento(this);
 
@@ -196,37 +121,26 @@ public class JogoFacade {
 	 * @param numero
 	 * @throws ValorInvalidoException
 	 */
+	/* verifica se o numero de jogadores na partida eh maior que 2 e menor que 8 */
 	public void verificaNumeroJogadores(int numero) throws ValorInvalidoException {
 		if ((numero > 8 || numero < 2)) {
-			throw new ValorInvalidoException("N�mero de jogadores inv�lidos!\n");
+			throw new ValorInvalidoException("Numero de jogadores invalidos!\n");
 		}
 	}
 
-	/**
-	 * <p>
-	 * Pass the turn.
-	 * </p>
-	 * 
-	 */
+	/* passa a vez */
 	public void passarAVez() {
 		this.listaJogadores.add(this.listaJogadores.pollFirst());
 	}
 
-	/**
-	 * <p>
-	 * Shows the option "yes or no" in certain situations.
-	 * </p>
-	 * @param msg
-	 * @throws ValorInvalidoException
-	 * @return boolean
-	 */
+	/* mostra a opcao sim ou nao em certas situacoes */
 	public boolean simOuNao(String msg) throws ValorInvalidoException {
-		System.out.print(msg + "\nSim/N�o");
+		System.out.print(msg + "\nSim/Nao");
 		String escolha = this.input();
 		if (escolha.matches("[\\s]*[Ss]+[Ii]*[Mm]*[\\s]*")) {
 			return true;
-		} else if (!(escolha.matches("[\\s]*[Nn]+[��Aa]*[Oo]*[\\s]*"))) {
-			throw new ValorInvalidoException("Op��o n�o permitida");
+		} else if (!(escolha.matches("[\\s]*[a-z\\s*A-Z0-9]+"))) {
+			throw new ValorInvalidoException("Opcao nao permitida");
 		}
 		return false;
 	}
@@ -285,11 +199,6 @@ public class JogoFacade {
 	}
 
 	public LinkedList<Jogador> getJogadores() {
-		// TODO Auto-generated method stub
 		return this.listaJogadores;
 	}
-
-	
-	
-	
 }

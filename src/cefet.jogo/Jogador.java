@@ -9,17 +9,9 @@ import cefet.exceptions.ValorInvalidoException;
 import cefet.lougradouros.Terreno;
 import cefet.lougradouros.TituloStrategy;
 
-/**
- * <p>
- * Representing a player. </br>
- * In this class, a player is considered to have a name, a pawn color, a
- * position on the board, an account, a list of titles, and if he has a Habeas
- * Corpus card.
- * </p>
- * 
- */
+/* representa um jogador */
 public class Jogador {
-
+	/* atributos nome, cor, posicao no tabuleiro, conta, lista de titulos e se tem uma carta de habeas corpus */
 	private String nome;
 	private String cor;
 	private int posicao;
@@ -27,16 +19,9 @@ public class Jogador {
 	private LinkedList<TituloStrategy> titulos;
 	private boolean carta;
 
-	/**
-	 * <p>
-	 * Constructor method of class Jogador,enables initialization of name and color
-	 * attributes. In addition, the player is started with an empty title list, an
-	 * account and no Habeas Corpus card.
-	 * </p>
-	 * @param String nome - player's name
-	 * @param String cor - player's pawn color
-	 */
+	/* metodo construtor da classe Jogador */
 	public Jogador(String nome, String cor) {
+		/* inicializa com os atributos de nome, cor, lista vazia, uma conta e sem carta de Habeas Corpus */
 		this.nome = nome;
 		this.cor = cor;
 		this.titulos = new LinkedList<TituloStrategy>();
@@ -74,15 +59,7 @@ public class Jogador {
 		return this.nome + "(" + this.cor + ")";
 	}
 
-	/**
-	 * <p>
-	 * Deposits a value into the player's account.
-	 * </p>
-	 * 
-	 * @param valor - An integer number representing the value that will be received
-	 *              for the player.
-	 * 
-	 */
+	/* deposita valor na conta do jogador */
 	public void receber(int valor) {
 		try {
 			this.conta.deposita(valor);
@@ -90,14 +67,7 @@ public class Jogador {
 		}
 	}
 
-	/**
-	 * <p>
-	 * Pays a certain valeu to the other player.
-	 * </p>
-	 * 
-	 * @param jogador - 
-	 * @param valor - An integer representing the amount that will be paid to the other player.
-	 */
+	/* paga uma certa quantidade para o outro jogador */
 	public void pagar(Jogador jogador, int valor) {
 		try {
 			this.conta.debita(valor);
@@ -114,14 +84,7 @@ public class Jogador {
 		}
 	}
 
-	/**
-	 * <p>
-	 * Pays a certain valeu to the other player.
-	 * </p>
-	 * 
-	 * @param jogo - 
-	 * @param valor - An integer representing the amount that will be paid to the other player.
-	 */
+	/* paga uma certa quantidade para o outro jogador */
 	public boolean pagar(int valor) {
 		try {
 			this.conta.debita(valor);
@@ -130,7 +93,7 @@ public class Jogador {
 			return false;
 		} catch (LimiteExcedidoException e) {
 			if (this.titulos.size() == 0) {
-				System.out.println("Fal�ncia!");
+				System.out.println("Falencia!");
 				JogoFacade.getInstance().removeJogador();
 				return false;
 			} else {
@@ -140,17 +103,7 @@ public class Jogador {
 		}return false;
 	}
 
-	/**
-	 * <p>
-	 * 
-	 * </p>
-	 * Method for the player buys a land.
-	 * 
-	 * @param valor
-	 * @param t
-	 * 
-	 */
-
+	/* metodo para o jogador comprar um terreno */
 	public void comprarTitulo(int valor, TituloStrategy t) {
 		try {
 			this.conta.debita(valor);
@@ -163,31 +116,14 @@ public class Jogador {
 		this.titulos.add(t);
 	}
 
-	/**
-	 * <p>
-	 * Method that makes the move.
-	 * </p>
-	 * 
-	 * @param d Dado utilizado no jogo
-	 * @param t Tabuleiro utilizado no jogo
-	 * 
-	 */
-	// JOGADOR USA DADO, PORTANTO, DADO � UM PARAMETRO DO METODO JOGADA
+	/* metodo para se movimentar */
 	public void jogada(int dado1, int dado2, JogoFacade jogo) {
 		avancarCasas(dado1, dado2);
 		System.out.println(
-				this.toString() + "tirou " + dado1 + "," + dado2 + " e o pe�o avan�ou " + jogo.getPosicaoAtual());
+				this.toString() + "tirou " + dado1 + "," + dado2 + " e o peao avancou " + jogo.getPosicaoAtual());
 	}
 
-	/**
-	 * <p>
-	 * Method that advances to the next posicion.
-	 * </p>
-	 * 
-	 * 
-	 * @param dado1 int
-	 * @param dado2 int
-	 */
+	/* metodo que avanca para a proxima posicao */
 	public void avancarCasas(int dado1, int dado2) {
 		this.posicao += dado1 + dado2;
 		if (this.posicao > 39) {
@@ -195,13 +131,7 @@ public class Jogador {
 		}
 	}
 
-	/**
-	 * <p>
-	 * Removes the title from the player.
-	 * </p>
-	 * 
-	 * @param tituloFactory
-	 */
+	/* metodo que remove o titulo de um jogador */
 	public void removeTitulo(TituloStrategy tituloFactory) {
 		for (int k = 0; k < this.titulos.size(); k++) {
 			if (titulos.get(k).equals(tituloFactory)) {
@@ -211,14 +141,7 @@ public class Jogador {
 		}
 	}
 
-	/**
-	 * <p>
-	 * Checks if there is any cards.
-	 * </p>
-	 * 
-	 * @return
-	 * 
-	 */
+	/* verifica se tem alguma carta */
 	public boolean temCarta() {
 		if (this.carta == true) {
 			return true;
@@ -226,43 +149,29 @@ public class Jogador {
 		return false;
 	}
 
-	/**
-	 * <p>
-	 * Removes the card.
-	 * </p>
-	 * 
-	 */
+	/* remove a carta */
 	public void removeCarta() {
 		this.carta = false;
 	}
 
-	/**
-	 * <p>
-	 * adds a card.
-	 * </p>
-	 * 
-	 */
+	/* adiciona uma carta */
 	public void addCarta() {
 		this.carta = true;
 	}
 
-	/**
-	 * <p>
-	 * Makes the player go to the prison if he/she is on the posicion 30 on the board.
-	 * </p>
-	 * 
-	 */
+	/* faz o jogador ir para a prisao se esta na posicao 30 do tabuleiro */
 	public void vaiParaPrisao() {
 		this.posicao = 30;
 	}
 
+	/* mostra para o jogador quantas terrenos e contrucoes tem */
 	public void mostrarTerrenos() {
 		String texto = "";
 		int cont = 1;
 		for(TituloStrategy e: this.titulos) {
 			if(e.hasTerreno() ){
 				Terreno t = ((Terreno) e);
-				texto = Integer.toString(cont) +" - "+ e.getNome()+" tem "+ t.getNumeroDeCasas()+" casa(s) constru�das, casa custa $ "+ t.getValorDaConstrucao();
+				texto = Integer.toString(cont) +" - "+ e.getNome()+" tem "+ t.getNumeroDeCasas()+" casa(s) construidas, casa custa $ "+ t.getValorDaConstrucao();
 				cont += 1;
 				System.out.println(texto);
 			}
@@ -286,7 +195,7 @@ public class Jogador {
 			}
 		} if(terrenos.size() > 0) {
 			return terrenos.get(n-1);
-		} throw new NaoTemTerrenosException("Voc� n�o tem Terrenos.");
+		} throw new NaoTemTerrenosException("Voce nao tem Terrenos.");
 	}
 	
 }

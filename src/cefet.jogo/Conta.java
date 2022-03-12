@@ -3,39 +3,20 @@ package cefet.jogo;
 import cefet.exceptions.LimiteExcedidoException;
 import cefet.exceptions.ValorInvalidoException;
 
-/**
- * <p>
- * This class represents a checking account, has only the balance attribute and
- * methods of deposit and debit, it is also possible to check the account
- * balance.
- * </p>
- */
+/* classe conta corrente */
 public class Conta {
-
+	/* atributo saldo */
 	private int saldo;
-
-	/**
-	 * <p>
-	 * Constructor method of class Conta, initially Conta has the balance of $ 1500.
-	 * </p>
-	 */
+	/* metodo contrutor da classe Conta */
+	/* inicia a conta com saldo de 1500 */
 	public Conta() {
 		this.saldo = 1500;
 	}
 
-	/**
-	 * <p>
-	 * A value is added to the saldo, this value that will be added is the will be
-	 * passed as a parameter.
-	 * </p>
-	 * 
-	 * @param valor - A floating point number representing the value that will be
-	 *              added
-	 * @throws ValorInvalidoException If a value less than zero or zero is passed as
-	 *                                a parameter, this method throws an exception
-	 *                                of this type.
-	 */
+	/* metodo deposito */
+	/* adiciona valor ao saldo e passa-o como parametro */
 	public void deposita(double valor) throws ValorInvalidoException {
+		/* nao permite valores de zero ou menor que zero */
 		if (valor <= 0) {
 			throw new ValorInvalidoException("Valor inválido");
 		}
@@ -43,37 +24,23 @@ public class Conta {
 
 	}
 
-	/**
-	 * <p>
-	 * A value is debited to the saldo, this value that will be added is the will be
-	 * passed as a parameter.
-	 * </p>
-	 * 
-	 * @param valor - A floating point number representing the value that will to be
-	 *              debited.
-	 * @throws ValorInvalidoException  If a value less than zero or zero is passed
-	 *                                 as a parameter, this method throws an
-	 *                                 exception of this type.
-	 * 
-	 * @throws LimiteExcedidoException If a value greater than the customer is
-	 *                                 passed as a parameter, this method throws an
-	 *                                 exception of this type.
-	 */
+	/* metodo debito */
+	/* debita valor do saldo e passa-o como parametro */
 	public void debita(double valor) throws ValorInvalidoException, LimiteExcedidoException {
+		/* nao permite valores de zero ou menor que zero */
 		if (valor <= 0) {
 			throw new ValorInvalidoException("Valor Inválido!");
-
+			
+			/* nao permite debitar um valor maior do que ja tem em conta */
 		} else if (valor > this.saldo) {
 			throw new LimiteExcedidoException("Saldo Insuficiente!");
 		}
 		this.saldo -= valor;
-
 	}
-
+	/* consulta o saldo da conta */
 	public int getSaldo() {
 		return this.saldo;
 	}
-
 	@Override
 	public String toString() {
 		return "Possui: " + this.saldo;

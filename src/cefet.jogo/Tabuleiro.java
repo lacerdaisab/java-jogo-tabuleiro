@@ -8,13 +8,7 @@ import java.util.LinkedList;
 import cefet.cartas.SorteOuReves;
 import cefet.lougradouros.*;
 
-/**
- * <p>
- * Represents the board.
- * </p>
- * 
- *
- */
+/* representa o tabuleiro */
 public class Tabuleiro {
 
 	private Posicao[] posicoeDoTabuleiro;
@@ -28,14 +22,7 @@ public class Tabuleiro {
 	private static final String ARQUIVO_POSICOES_DE_SORTE_OU_REVES = "./Arquivos/posicaoDeSorteOuReves.txt";
 	private static final String ARQUIVO_SORTE_OU_REVES = "./Arquivos/cartasDeSorteOuReves.txt";
 
-	/**
-	 * <p>
-	 *  Constructor from class Tabuleiro, enables initialization of position on the
-	 * board attribute.
-	 * </p>
-	 *.
-	 * 
-	 */
+	/* contrutor da classe tabuleiro, permite a inicializacao da posicao no atributo tabuleiro */
 	public Tabuleiro() {
 		this.posicoeDoTabuleiro = new Posicao[41];
 		recuperaCompanhias();
@@ -46,7 +33,6 @@ public class Tabuleiro {
 		try {
 			this.baralho = recupera.recuperaCartas(ARQUIVO_SORTE_OU_REVES);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -56,12 +42,7 @@ public class Tabuleiro {
 		return this.posicoeDoTabuleiro[indice];
 	}
 
-	/**
-	 * <p>
-	 * Method to recover companies file.
-	 * </p>
-	 * 
-	 */
+	/* metodo que recupera arquivos das companhias */
 	public void recuperaCompanhias() {
 
 		try {
@@ -80,16 +61,11 @@ public class Tabuleiro {
 
 			}
 		} catch (IOException e) {
-			System.out.println("N�o foi poss�vel recuperar o arquivo TXT de companhia");
+			System.out.println("Nao foi possivel recuperar o arquivo TXT de companhia");
 		}
 	}
 
-	/**
-	 * <p>
-	 * Method to recover the especial positions file.
-	 * </p>
-	 * 
-	 */
+	/* metodo que recupera o arquivode posicoes especiais */
 	public void recuperaPosicoesEspeciais() {
 		try {
 			for (String s : recupera.recuperaTextoDeArquivo(ARQUIVO_POSICOES_ESPECIAIS)) {
@@ -113,17 +89,12 @@ public class Tabuleiro {
 
 			}
 		} catch (IOException e) {
-			System.out.println("N�o foi poss�vel recuperar o arquivo TXT posi��es especiais");
+			System.out.println("Nao foi possivel recuperar o arquivo TXT posicoes especiais");
 		}
 
 	}
 
-	/**
-	 * <p>
-	 * Method to recover prison file.
-	 * </p>
-	 * 
-	 */
+	/* metodo que recupera o arquivo de prisao */
 	public void recuperaPrisao() {
 		try {
 			for (String s : recupera.recuperaTextoDeArquivo(ARQUIVO_PRISAO)) {
@@ -136,17 +107,12 @@ public class Tabuleiro {
 
 			}
 		} catch (IOException e) {
-			System.out.println("N�o foi poss�vel recuperar o arquivo TXT de pris�o");
+			System.out.println("Nao foi possivel recuperar o arquivo TXT de prisao");
 		}
 
 	}
 
-	/**
-	 * <p>
-	 * Method to recover lands file.
-	 * </p>
-	 * 
-	 */
+	/* metodo que recupera o arquivo de terrenos */
 	public void recuperaTerrenos() {
 
 		try {
@@ -173,17 +139,12 @@ public class Tabuleiro {
 
 			}
 		} catch (IOException e) {
-			System.out.println("N�o foi poss�vel recuperar o arquivo TXT de terrenos");
+			System.out.println("Nao foi possivel recuperar o arquivo TXT de terrenos");
 		}
 
 	}
 
-	/**
-	 * <p>
-	 * Method to recover luck or mischance file
-	 * </p>
-	 * 
-	 */
+	/* metodo que recupera as posicoes de sorte ou reves */
 	public void recuperaPosicoesDeSorteOuReves() {
 		try {
 			for (String s : recupera.recuperaTextoDeArquivo(ARQUIVO_POSICOES_DE_SORTE_OU_REVES)) {
@@ -194,22 +155,15 @@ public class Tabuleiro {
 
 			}
 		} catch (IOException e) {
-			System.out.println("N�o foi poss�vel recuperar o arquivo TXT de posi��es de sorte ou rev�s");
+			System.out.println("Nao foi possivel recuperar o arquivo TXT de posicoes de sorte ou reves");
 		}
 
 	}
 
-	/**
-	 * <p>
-	 * Method to gets "Sorte ou Rev�s".
-	 * </p> 
-	 * @return
-	 * 
-	 */
+	/* metodo que pega sorte ou reves */
 	public SorteOuReves getSorteOuReves() {
 		SorteOuReves carta = this.baralho.pollFirst();
 		this.baralho.add(carta);
 		return carta;
 	}
-
 }

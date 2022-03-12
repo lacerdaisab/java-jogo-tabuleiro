@@ -5,21 +5,10 @@ import cefet.opcoes.Carta;
 import cefet.opcoes.JogarPrisao;
 import cefet.opcoes.Pagar;
 
-/**
- * <p>
- * Represents the facade of the game when the player is in prison.
- * </p>
- * 
- *
- */
+/* representa a fachada do jogo com o jogador esta na prisao */
 public class JogoFactoryPrisao extends JogoFactory {
 
-	/**
-	 * Shows the options of facade of the game when the player is in prison.
-	 * @param opcao
-	 * @param jogo
-	 * @return boolean
-	 */
+	/* mostra as opcoes de fachada do jogo quando o jogador esta na prisao */
 	public boolean escolheOpcao(String opcao, JogoFacade jogo) {
 		opcao = opcao.replaceAll("\\s+", "").toLowerCase();
 		switch (opcao) {
@@ -38,7 +27,7 @@ public class JogoFactoryPrisao extends JogoFactory {
 		case "sair":
 			boolean escolha;
 			try {
-				escolha = jogo.simOuNao("Voc� realmente quer sair");
+				escolha = jogo.simOuNao("Voce realmente quer sair");
 				if (escolha) {
 					setOpcaoSair();
 				}
@@ -54,33 +43,20 @@ public class JogoFactoryPrisao extends JogoFactory {
 		return true;
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Play(Jogar)".
-	 * </p>
-	 */
+	/* define a opcao jogar */
 	@Override
 	public void setOpcaoJogar() {
 		this.op = new JogarPrisao();
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Card(Carta)" for the player try to get out of prison with a card.
-	 * </p>
-	 */
+	/* define a opcao carta para o jogador que tenta sair da prisao com uma carta */
 	private void setOpcaoCarta() {
 		this.op = new Carta();
 
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Pay(Pagar)" for the player pay to get out of prison.
-	 * </p>
-	 */
+	/* define a opcao para o jogador que paga para sair da prisao */
 	private void setOpcaoPagar() {
 		this.op = new Pagar();
 	}
-
 }

@@ -4,15 +4,10 @@ import cefet.exceptions.CorValidaException;
 import cefet.exceptions.ExisteJogadorComEstaCorException;
 import cefet.exceptions.ValorInvalidoException;
 
-/**
- * <p>
- * Representing the game. In this class, the game will starts, define the
- * numbers of players, choose the players' name and the pawn color, show the
- * options available for each player, and finally starts the match.
- * </p>
- */
+/* representa o jogo */
 public class Jogo {
-
+	/* comeca o jogo, define o numero de jogadores, escolhe o nome dos jogaadores e a cor dos peoes,
+	mostra as opcoes disponiveis para cada jogador e inicia a partida */
 	protected JogoFacade jogo;
 	private int idJogador = 1;
 	private int numeroDeJogadores;
@@ -20,25 +15,12 @@ public class Jogo {
 	private String[] listaDeCoresDisponiveis = { "preto", "branco", "vermelho", "verde", "azul", "amarelo", "laranja",
 	"rosa" };
 
-	
-	/**
-	 * <p>
-	 * Class that has the methods to starts and ends and other objects that make up
-	 * the game.
-	 * </p>
-	 * .
-	 * 
-	 */
+	/* classe que tem o metodo que inicia, finaliza e outros objetos que fazem o jogo */
 	public Jogo() {
 		this.jogo = JogoFacade.getInstance();
 	}
 
-	/**
-	 * <p>
-	 * Starts the game.
-	 * </p>
-	 * 
-	 */
+	/* inicia o jogo */
 	public void iniciarJogo() {
 		nJogadores();
 		criarJogadores();
@@ -47,14 +29,9 @@ public class Jogo {
 
 	}
 
-	/**
-	 * <p>
-	 * Defines the number of players.
-	 * </p>
-	 * 
-	 */
+	/* define o numero de jogadores */
 	private void nJogadores() {
-		System.out.print("Digite o n�mero de jogadores [2 - 8]: ");
+		System.out.print("Digite o numero de jogadores [2 - 8]: ");
 		int numero = 0;
 		try {
 			numero = jogo.inputInt();
@@ -64,39 +41,27 @@ public class Jogo {
 			System.err.print("O valor deve ser um inteiro!\n");
 			nJogadores();
 		} catch (ValorInvalidoException e) {
-			System.err.print("N�mero de jogadores inv�lidos!");
+			System.err.print("Numero de jogadores invalidos!");
 			nJogadores();
 		}
 
 	}
 
-	/**
-	 * <p>
-	 * </p>
-	 * method to choose the player's name.
-	 * 
-	 * @return nome
-	 */
+	/* metodo que escolhe o nome do jogador */
 	private String escolheNomeJogador() {
 		System.out.print("Digite o nome do jogador " + (this.idJogador) + ": ");
 		String nome = jogo.input();
 		if (!nome.matches("[\\s]*[a-z\\s*A-Z0-9]+")) {
-			System.err.println("Digite apenas letras e n�meros.\nTente novamente");
+			System.err.println("Digite apenas letras e numeros.\nTente novamente");
 			escolheNomeJogador();
 		}
 		return nome;
 
 	}
 
-	/**
-	 * <p>
-	 * Method to choose the player's pawn color
-	 * </p>
-	 * 
-	 * @return cor
-	 */
+	/* metodo qe escolhe a cor do peao */
 	private String escolheCorPeao() {
-		System.out.print("Escolha a cor do pe�o do jogador " + (this.idJogador) + " entre as op��es seguintes:\n");
+		System.out.print("Escolha a cor do peao do jogador " + (this.idJogador) + " entre as opcoes seguintes:\n");
 		for (int k = 0; k < this.listaDeCoresDisponiveis.length; k++) {
 			if (this.listaDeCoresDisponiveis[k] != "") {
 				System.out.print("[" + this.listaDeCoresDisponiveis[k] + "]");
@@ -107,14 +72,7 @@ public class Jogo {
 		return cor;
 	}
 	
-	/**
-	 * <p>
-	 * Removes the color chosen by the player from the list of available colors.
-	 * </p>
-	 * 
-	 * @param cor - A String representing the color that will be removed from the
-	 *            list of available colors.
-	 */
+	/* remova a cor escolhida pelo jogador da lista de cores disponiveis */
 	private void eliminaCorEscolhidaDaLista(String cor) {
 		for (int k = 0; k < this.listaDeCoresDisponiveis.length; k++) {
 			if (this.listaDeCoresDisponiveis[k].equals(cor)) {
@@ -123,13 +81,7 @@ public class Jogo {
 		}
 	}
 
-
-	/**
-	 * <p>
-	 * Method that creates the player(name and color pawn/)
-	 * </p>
-	 * 
-	 */
+	/* metodo que cria o jogador - nome e cor do peao */
 	public void criarJogadores() {
 		for (int i = 0; i < this.numeroDeJogadores; i++) {
 			String nome = escolheNomeJogador();
@@ -144,21 +96,15 @@ public class Jogo {
 					this.idJogador++;
 					parar = true;
 				} catch (ExisteJogadorComEstaCorException e) {
-					System.err.println("J� existe jogador com a cor escolhida, tente novamente!");
+					System.err.println("Ja existe jogador com a cor escolhida, tente novamente!");
 				} catch (CorValidaException e) {
-					System.err.println("Cor Inv�lida, tente novamente!");
+					System.err.println("Cor Invalida, tente novamente!");
 				}
 			}
 		}
 	}
 
-	/**
-	 * <p>
-	 * Method that shows the options available to the player.
-	 * </p>
-	 * 
-	 * @param j Jogador
-	 */
+	/* metodo que mostra as opcoes disponiveis para o jogador */
 	private void opcoes(Jogador j) {
 		if (jogo.verificarSeTaNaPrisao(j)) {
 			opcoesPrisao();
@@ -185,40 +131,25 @@ public class Jogo {
 	}
 
 	private void opcoesConstruir() {
-		System.out.print("Comandos dispon�veis:[construir][vender][jogar][status][sair]\nEntre com um comando: ");
+		System.out.print("Comandos disponiveis:[construir][vender][jogar][status][sair]\nEntre com um comando: ");
 		
 	}
 
-	/**
-	 * <p>
-	 * Shows the options available for each player.
-	 * </p>
-	 * 
-	 */
+	/* mostra as opcoes disponiveis para cada jogador */
 	private void opcoesNormal() {
-		System.out.print("Comandos dispon�veis:[jogar][status][sair]\nEntre com um comando: ");
+		System.out.print("Comandos disponiveis:[jogar][status][sair]\nEntre com um comando: ");
 	}
 
-	/**
-	 * <p>
-	 * Shows the options available for the player who is in the prison.
-	 * </p>
-	 * 
-	 */
+	/* mostra as opcoes disponiveis para o jogador que esta na prisao */
 	private void opcoesPrisao() {
-		System.out.print("Comandos dispon�veis:[pagar][carta][jogar][status][sair]\nEntre com um comando: ");
+		System.out.print("Comandos disponiveis:[pagar][carta][jogar][status][sair]\nEntre com um comando: ");
 	}
 	
 	private void opcoesVender() {
-		System.out.println("Comandos dispon�veis:[Vender][jogar][status][sair]\nEntre com um comando: ");
+		System.out.println("Comandos disponiveis:[Vender][jogar][status][sair]\nEntre com um comando: ");
 	}
 
-	/**
-	 * <p>
-	 * Starts the match.
-	 * </p>
-	 * 
-	 */
+	/* inicia a partida */
 	private void partida() {
 		if (jogo.verificarSeTaNaPrisao(jogo.JogadorAtual())) {
 			jogo.setPrisao();
@@ -230,12 +161,11 @@ public class Jogo {
 		else {
 			jogo.setFabrica();
 		}
-		System.out.println("A jogada de " + jogo.JogadorAtual().toString() + "come�ou:");
+		System.out.println("A jogada de " + jogo.JogadorAtual().toString() + "comecou:");
 		opcoes(jogo.JogadorAtual());
 		
 		this.jogo.pollJogador();
 		this.inicioDaPartida = true;
 		partida();
 	}
-
 }

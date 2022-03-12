@@ -7,21 +7,10 @@ import cefet.opcoes.JogarPrisao;
 
 import cefet.opcoes.Vender;
 
-/**
- * <p>
- * Represents the option available in the game to the player.
- * </p>
- * 
- *
- */
+/* representa a opcao disponivel no jogo para o jogador */
 public class JogoFactoryConstruir extends JogoFactory {
 
-	/**
-	 * Shows the options of the game.
-	 * @param opcao
-	 * @param jogo
-	 * @return boolean
-	 */
+	/* mostra as opcoes do jogo */
 	public boolean escolheOpcao(String opcao, JogoFacade jogo) {
 		opcao = opcao.replaceAll("\\s+", "").toLowerCase();
 		switch (opcao) {
@@ -40,7 +29,7 @@ public class JogoFactoryConstruir extends JogoFactory {
 		case "sair":
 			boolean escolha;
 			try {
-				escolha = jogo.simOuNao("Voc� realmente quer sair");
+				escolha = jogo.simOuNao("Voce realmente quer sair");
 				if (escolha) {
 					setOpcaoSair();
 				}
@@ -57,33 +46,20 @@ public class JogoFactoryConstruir extends JogoFactory {
 		return true;
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Sell(Vender)".
-	 * </p>
-	 */
+	/* configura a opcao vender */
 	private void setOpcaoVender() {
 		this.op = new Vender();
 		
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Build(Construir)".
-	 * </p>
-	 */
+	/* define a opcao construir */
 	private void setOpcaoConstruir() {
 		this.op = new ConstruirOP();
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Play(Jogar)".
-	 * </p>
-	 */
+	/* define a opcao jogar */
 	@Override
 	public void setOpcaoJogar() {
 		this.op = new JogarPrisao();
 	}
-
 }

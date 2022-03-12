@@ -9,18 +9,9 @@ import cefet.opcoes.Status;
 
 
 public class JogoFactory {
-
 	protected Opcao op;
 
-	/**
-	 * <p>
-	 * Method for the player choose an option.
-	 * </p>
-	 * 
-	 * @param opcao
-	 * @param jogo
-	 * @return boolean
-	 */
+	/* metodo para o jogador escolher uma opcao */
 	public boolean escolheOpcao(String opcao, JogoFacade jogo) {
 		opcao = opcao.replaceAll("\\s+", "").toLowerCase();
 		switch (opcao) {
@@ -33,7 +24,7 @@ public class JogoFactory {
 		case "sair":
 			boolean escolha;
 			try {
-				escolha = jogo.simOuNao("Voc� realmente quer sair? ");
+				escolha = jogo.simOuNao("Voce realmente quer sair? ");
 				if (escolha) {
 					setOpcaoSair();
 					return true;
@@ -52,52 +43,28 @@ public class JogoFactory {
 		return true;
 	}
 
-	/**
-	 * <p>
-	 * Execute the chosen option.
-	 * </p>
-	 * 
-	 * @param
-	 * @return
-	 */
+	/* executa a opcao escolhida */
 	public boolean executarOpcao(JogoFacade jogo) {
 		return this.op.fazerOP();
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Play(Jogar)".
-	 * </p>
-	 */
+	/* define a opcao jogar */
 	public void setOpcaoJogar() {
 		this.op = new Jogar();
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Status".
-	 * </p>
-	 */
+	/* define a opcao status */
 	public void setOpcaoStatus() {
 		this.op = new Status();
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Leave(Sair)".
-	 * </p>
-	 */
+	/* define a opcao sair */
 	public void setOpcaoSair() {
 		this.op = new Sair();
 	}
 
-	/**
-	 * <p>
-	 * Sets the option "Erro".
-	 * </p>
-	 */
+	/* define a opcao erro */
 	protected void setOpcaoErro() {
 		this.op = new Erro();
 	}
-
 }
