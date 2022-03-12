@@ -2,31 +2,19 @@ package cefet.opcoes;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents the class of the cards.
- * </p>
- *
- */
+/* representa a classe de cartas */
 public class Carta implements Opcao {
 
-	/**
-	 * <p>
-	 * Method for the player try to get out of prison with the card Habeas Corpus.
-	 * </p>
-	 * 
-	 * @param jogo JogoFacade
-	 * @return boolean
-	 */
+	/* metodo para o jogador tentar sair da prisao com a carta Habeas Corpus */
 	@Override
 	public boolean fazerOP() {
 		JogoFacade jogo = JogoFacade.getInstance();
 		if (jogo.JogadorAtual().temCarta()) {
 			jogo.JogadorAtual().removeCarta();
-			System.out.println(jogo.JogadorAtual() + " usou carta para sair da pris�o");
+			System.out.println(jogo.JogadorAtual() + " usou carta para sair da prisao");
 			return true;
 		}
-		System.out.println("N�o tem carta de Habeas corpus");
+		System.out.println("Nao tem carta de Habeas corpus");
 		return false;
 	}
 

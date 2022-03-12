@@ -1,18 +1,6 @@
 package cefet.opcoes;
 
-/**
- * <p>
- * Represents the interface Option(opc�o).
- * </p>
- */
+/* representa a interface opcao */
 public interface Opcao {
-	
-	/**
-	 * <p>
-	 * </p>
-	 * 
-	 * @param jogo
-	 * @return
-	 */
 	public boolean fazerOP();
 }

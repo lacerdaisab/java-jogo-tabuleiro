@@ -2,24 +2,13 @@ package cefet.opcoes;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents class that the player throws the dices.
- * </p>
- *
- */
+/* representa classe que o jogador joga dados */
 public class Jogar implements Opcao {
 
 	protected int dado1;
 	protected int dado2;
 
-	/**
-	 * <p>
-	 * When the player throws the dices.
-	 * </p>
-	 * 
-	 * @param jogo
-	 */
+	/* quando o jogador joga os dados */
 	@Override
 	public boolean fazerOP() {
 		JogoFacade jogo = JogoFacade.getInstance();
@@ -33,20 +22,11 @@ public class Jogar implements Opcao {
 
 		sumDados(jogo);
 		return true;
-
 	}
 
-	/**
-	 * <p>
-	 * Add up the dices' values.
-	 * </p>
-	 * 
-	 * @param jogo JogoFacade
-	 */
+	/* adiciona os valores do dado */
 	public void sumDados(JogoFacade jogo) {
 		jogo.JogadorAtual().jogada(this.dado1, this.dado2, jogo);
 		jogo.chamarEvento();
-
 	}
-
 }

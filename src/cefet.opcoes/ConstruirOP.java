@@ -3,19 +3,9 @@ package cefet.opcoes;
 import cefet.exceptions.NaoTemTerrenosException;
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents when the player is, or not, able to build a house on their property.
- * </p>
- */
+/* representa quando o jogador esta ou nao capaz de construir uma casa em sua propriedade */
 public class ConstruirOP implements Opcao {
-
-	/**
-	 * <p>
-	 * In this method, the player will be able to build houses on their property.
-	 * </p>
-	 * @return boolean
-	 */
+	/* metodo que o jogador sera capaz de construir casas em suas propriedade */
 	@Override
 	public boolean fazerOP() {
 		JogoFacade jogo = JogoFacade.getInstance();
@@ -24,7 +14,7 @@ public class ConstruirOP implements Opcao {
 			System.out.println(jogo.JogadorAtual().getNome()+" possui "+jogo.JogadorAtual().getSaldo());
 			System.out.println("Escolha onde quer construir:");
 			jogo.JogadorAtual().mostrarTerrenos();
-			System.out.println("Digite o n�mero da propriedade (0 para sair):");
+			System.out.println("Digite o numero da propriedade (0 para sair):");
 			try {
 				entrada = jogo.inputInt();
 			} catch (NumberFormatException e1) {
@@ -34,7 +24,7 @@ public class ConstruirOP implements Opcao {
 				if(entrada>= 1 && entrada <= jogo.JogadorAtual().getNumeroDeTerrenos()) {
 					jogo.JogadorAtual().escolheTerreno(entrada).construir();
 				}else if(entrada != 0){
-					System.err.print("Op��o inv�lida!\n");
+					System.err.print("Opcao invalida!\n");
 				} 
 			}catch (NaoTemTerrenosException e) {
 				System.err.print(e.getMessage()+"\n");

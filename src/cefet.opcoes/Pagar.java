@@ -2,20 +2,9 @@ package cefet.opcoes;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents when the player has to pay a certain value.
- * </p>
- *
- */
+/* representa quando o jogador tem que pagar algum valor */
 public class Pagar implements Opcao {
-
-	/**
-	 * <p>
-	 * The player pays a value and the match continues.
-	 * </p>
-	 * @return boolean
-	 */
+	/* o jogador paga um valor e a partida continua */
 	@Override
 	public boolean fazerOP() {
 		JogoFacade jogo = JogoFacade.getInstance();		
@@ -26,5 +15,4 @@ public class Pagar implements Opcao {
 		jogo.getPosicaoAtual().evento(jogo);
 		return true;
 	}
-
 }

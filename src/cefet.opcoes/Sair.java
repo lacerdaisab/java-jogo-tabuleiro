@@ -2,23 +2,9 @@ package cefet.opcoes;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * REpresents when the player wants to leave the game.
- * </p>
- *
- */
+/* representa quando o jogador quer sair do jogo */
 public class Sair implements Opcao {
-
-	/**
-	 * <p>
-	 * If the match has 2 player and one player leaves the game, the other player wins the game.
-	 * </p>
-	 * Methods
-	 * 
-	 * @param jogo JogoFacade
-	 * @return boolean
-	 */
+	/* se a partida tem 2 jogadores e um jogador sair do jogo, o outro ganha a partida */
 	@Override
 	public boolean fazerOP() {
 		JogoFacade jogo = JogoFacade.getInstance();
@@ -26,10 +12,9 @@ public class Sair implements Opcao {
 			jogo.removeJogador();
 		} else {
 			jogo.removeJogador();
-			System.out.println(jogo.JogadorAtual() + " � o vencedor!");
+			System.out.println(jogo.JogadorAtual() + " eh o vencedor!");
 			System.exit(0);
 		}
 		return false;
 	}
-
 }
