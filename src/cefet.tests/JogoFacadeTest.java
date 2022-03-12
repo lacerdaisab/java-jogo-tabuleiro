@@ -13,24 +13,13 @@ import cefet.jogo.Jogador;
 import cefet.jogo.JogoFacade;
 
 public class JogoFacadeTest {
-	
-	/**
-	 * attributes used in the test
-	 * 
-	 * @author joana
-	 * 
-	 */
+	/* atributos usados no teste */
 	private JogoFacade jogo;
 
 	@Mock
 	Mock jogoT;
 
-	/**
-	 * method that initializes the attributes used in the game test
-	 * 
-	 * @author joana
-	 * 
-	 */
+	/* metodo que inicializa os atributos usados no teste do jogo */
 	@Before
 	public void setUp() {
 		this.jogo = new JogoFacade();
@@ -39,12 +28,7 @@ public class JogoFacadeTest {
 		}
 	}
 
-	/**
-	 * method that tests when the player is removed
-	 * 
-	 * @author joana
-	 * 
-	 */
+	/* metodo que testa quando o jogador eh removido */
 	@Test
 	public void testRemoveJogador() {
 		jogo.removeJogador();
@@ -66,12 +50,7 @@ public class JogoFacadeTest {
 
 	}
 
-	/**
-	 *testing method add players
-	 * 
-	 * @author joana
-	 * @return nome
-	 */
+	/* metodo teste para adicionar jogadores */
 	@Test
 	public void testAddJogador() {
 		jogo.addJogador(new Jogador("Joana", "Azul"));
@@ -79,25 +58,14 @@ public class JogoFacadeTest {
 
 	}
 
-	/**
-	 * method that checks to see if you're in prison
-	 * 
-	 * @author joana
-	 * 
-	 */
+	/* metodo que verifica que o jogador esta em prisao */
 	@Test
 	public void testVerificaSeTaNaPrisao() {
 		this.jogo.JogadorAtual().jogada(10, 0, jogo);
-		assertTrue( "Verifica se est� na pris�o",this.jogo.verificarSeTaNaPrisao(jogo.JogadorAtual()));
+		assertTrue( "Verifica se esta na prisao",this.jogo.verificarSeTaNaPrisao(jogo.JogadorAtual()));
 	}
 	
-	/**
-	 * 
-	 * method testing if the color player
-	 * @author joana
-	 * 
-	 */	
-
+	/* metodo teste cor do jogador */
 	@Test
 	public void testVerificaSeExisteJogadorComEstaCor() {
 		try {
@@ -114,5 +82,4 @@ public class JogoFacadeTest {
 
 		}
 	}
-
 }

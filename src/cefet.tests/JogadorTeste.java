@@ -13,44 +13,25 @@ import cefet.jogo.*;
 import cefet.lougradouros.Prisao;
 
 public class JogadorTeste {
-	/**
-	 * 
-	 *attribute to test on Jogador
-	 * @author joana
-	 */
+	/* atributo para testar o jogador */
 	@Mock
 	JogoFacade jogo = null;
 	Jogador j;
 
-	/**
-	 * 
-	 *method that initializes the attributes to be tested on jogador
-	 * @author joana
-	 */
+	/* metodo que inicializa os atributos para serem testados no jogador */
 	@Before
 	public void inicializa() {
 		MockitoAnnotations.initMocks(this);
 		j = new Jogador("Joana", "rosa");
 	}
 
-	/**
-	 * 
-	 *method that resets the jogador to be tested
-	 * @author joana
-	 */
+	/* metodo de reseta o jogador para ser testado */
 	@After
 	public void setDown() {
 		j = new Jogador("Joana", "rosa");
 	}
 
-	
-	/**
-	 *
-	 *method that tests the position when a player rolls the dice
-	 * @author joana
-	 */
-	
-	
+	/* metodo que testa a posicao quando o jogador rola o dado */
 	@Test
 	public void testJogadorLancaDado() {
 		Mockito.when(jogo.JogadorAtual()).thenReturn(j);
@@ -59,12 +40,7 @@ public class JogadorTeste {
 		assertEquals(10, j.getPosicao());
 	}
 	
-	/**
-	 *
-	 *method that tests the player's action for the strategy method
-	 * @author joana
-	 */ 
-
+	/* metodo que testa a acao do jogador para o metodo estrategia */
 	@Test
 	public void testJogadorEvento() {
 		jogo.addJogador(new Jogador("a", "b"));

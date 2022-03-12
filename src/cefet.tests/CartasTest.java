@@ -16,21 +16,12 @@ import cefet.jogo.Jogador;
 import cefet.jogo.JogoFacade;
 
 public class CartasTest {
-	/**
-	 * 
-	 * attributes to use in card tests
-	 * @author joana
-	 */
+	/* atributos para usar na carta de teste */
 	private SorteOuReves carta;
 	private Jogador jogador;
 	private JogoFacade jogo;
 
-
-	/**
-	 * 
-	 *method that initializes the attributes to be tested on cards
-	 * @author joana
-	 */
+	/* metodo que iniciliza os atributos para serem testados nas cartas */
 	@Before
 	public void setUp() {
 		this.jogo = JogoFacade.getInstance();
@@ -38,73 +29,48 @@ public class CartasTest {
 		this.jogo.addJogador(new Jogador("Clebson","rosa"));
 	}
 	
-	/**
-	 * 
-	 *method that resets the game to be tested due to the pattern singleton
-	 * @author joana
-	 */
+	/* metodo que reseta o jogo para ser testado devido ao padrao unico */
 	@After
 	public void setDown() {
 		this.jogo.reset();
 	}
 	
-	/**
-	 * 
-	 *method testing action of habeas corpus card
-	 * @author joana
-	 */
+	/* metodo testando a acao da carta habeas corpus */
 	@Test
 	public void testHabeasCorpus() {
-		this.carta = new HabeasCorpus("Descri��o", "2");
+		this.carta = new HabeasCorpus("Descricao", "2");
 		carta.acao(jogador);
 		assertTrue("Testando", jogador.temCarta());
 	}
 	
-
-	/**
-	 * 
-	 *method testing action of Pague card
-	 * @author joana
-	 */
-@Test
+	/* metodo que testa a acao da carta pague */
+	@Test
 	public void testPague() {
-		this.carta = new Pague("Descri��o", "100");
+		this.carta = new Pague("Descricao", "100");
 		carta.acao(jogador);
 		assertEquals("Testando Pague", 1400, jogador.getSaldo());
 	}
 
-	/**
-	 * 
-	 *method testing action of Presente card
-	 * @author joana
-	 */
+	/* metodo que testa a acao da carta presente */
 	@Test
 	public void testPresente() {
-		this.carta = new Presente("Descri��o", "50");
+		this.carta = new Presente("Descricao", "50");
 		carta.acao(jogador);
 		assertEquals("Testando Presente com 2 jogadores na partida",1550,jogador.getSaldo());
 	}
 	
-	/**
-	 * 
-	 *method testing action of Receba card
-	 * @author joana
-	 */
+	/* metodo que testa a acao da carta receba */
 	@Test
 	public void testReceba() {
-		this.carta = new Receba("Descri��o","50");
+		this.carta = new Receba("Descricao","50");
 		carta.acao(jogador);
 		assertEquals("Testando Recebendo de 1 jogador",1550,jogador.getSaldo());
 	}
 	
-	/**
-	 * 
-	 *method testing action of V�Pris�o card
-	 * @author joana
-	 */
+	/* metodo que testa a acao da carta va prisao*/
 	@Test
 	public void testVaPrisao() {
-		this.carta = new VaPrisao("Descri��o","0");
+		this.carta = new VaPrisao("Descricao","0");
 		carta.acao(jogador);
 		assertTrue(jogo.verificarSeTaNaPrisao(jogador));
 
