@@ -9,24 +9,10 @@ import java.util.List;
 
 import cefet.cartas.*;
 
-/**
- * <p>
- * This class is responsible for extracting data from the .txt file. It is the
- * layer between the data layer and the business logic layer.
- * </p>
- */
+/* classe responsavel por extrair dados do arquivo .txt
+	eh a camada entre a camada de dados e a camada de logica de negocios */
 public class RecuperaDadosDoTXT {
-
-	/**
-	 * <p>
-	 * You can retrieve board position data from a text file of type .TXT.
-	 * </p>
-	 * 
-	 * @param nomeArquivo - Name of the file that will retrieve the data.
-	 * @return A list of positions that were retrieved from the file.
-	 * @throws IOException exception will be thrown when file is not found.
-	 * 
-	 */
+	/* eh possivel recuperar a posicao do tabuleiro dos dados do arquivo de texto tipo .txt */
 	public List<String> recuperaTextoDeArquivo(String nomeArquivo) throws IOException {
 
 		BufferedReader leitor = null;
@@ -49,17 +35,7 @@ public class RecuperaDadosDoTXT {
 		return textoLido;
 	}
 
-	/**
-	 * <p>
-	 * You can retrieve lucky card data or setback a .txt text file.
-	 * </p>
-	 * 
-	 * @param nomeArquivo - Name of the file that will retrieve the data.
-	 * @return A list of lucky or setback cards that has been recovered from the
-	 *         file.
-	 * @throws IOException - exception will be thrown when file is not found.
-	 * 
-	 */
+	/* eh possivel recuperar os dados da carta de sorte ou reves do arquivo de texto .txt */
 	public LinkedList<SorteOuReves> recuperaCartas(String nomeArquivo) throws IOException {
 
 		BufferedReader leitor = null;
