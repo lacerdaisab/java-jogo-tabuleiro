@@ -1,13 +1,10 @@
 package cefet.exceptions;
 
 public class NaoTemTerrenosException extends Exception {	
-	/**
-	 * An exception for when the player does not have any property.
-	 */
+	/* excecao para jogadores sem propriedade */
 	private static final long serialVersionUID = 1L;
-
+/* metodo construtor da classe CorValidaException */
 	public NaoTemTerrenosException(String msg) {
 		super(msg);
 	}
-	
 }

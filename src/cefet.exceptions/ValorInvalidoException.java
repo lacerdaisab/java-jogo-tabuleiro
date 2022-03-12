@@ -1,22 +1,10 @@
 package cefet.exceptions;
 
-/**
- * <p>
- * The ValorInvalidoException class is a subclass of Exception that indicates
- * that a value is not valid for a given operation.
- * </p>
- */
+/* subclasse de Exception */
+/* indica que o valor nao eh valido para uma deteminada operacao */
 public class ValorInvalidoException extends Exception {
-
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * <p>
-	 * Constructor method of class ValorInvalidoException.
-	 * </p>
-	 * 
-	 * @param msg - A String
-	 */
+	/* metodo construtor da classe CorValidaException */
 	public ValorInvalidoException(String msg) {
 		super(msg);
 	}

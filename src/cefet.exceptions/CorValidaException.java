@@ -1,23 +1,11 @@
 package cefet.exceptions;
 
-/**
- * <p>
- * The CorValidaException class is a subclass of Exception that indicates that
- * it is a valid color exception. This occurs when, at the beginning of the
- * game, a player attempts to register a color that does not exist.
- * </p>
- */
+/* subclasse de Exception */
+/* indica que eh uma excecao de cor valida
+ocorre quando o jogador tenta registrar uma cor que nao existe */
 public class CorValidaException extends Exception {
-
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * <p>
-	 * Constructor method of class CorValidaException.
-	 * </p>
-	 * 
-	 * @param msg - A String
-	 */
+	/* metodo construtor da classe CorValidaException */
 	public CorValidaException(String msg) {
 		super(msg);
 	}
