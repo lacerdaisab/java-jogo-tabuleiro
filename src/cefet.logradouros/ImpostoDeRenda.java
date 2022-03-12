@@ -2,35 +2,21 @@ package cefet.logradouros;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * </p>
- *
- */
+/* representa o imposto de renda */
 public class ImpostoDeRenda implements Posicao {
 
 	private int posicao;
 
-	/**
-	 * <p>
-	 * Constructor from class ImpostoDeRenda, enables initialization of position
-	 * attribute.
-	 * </p>
-	 * 
-	 * @param int posicao - the position
-	 */
+	/* construtor da classe ImpostoDeRenda */
 	public ImpostoDeRenda(int posicao) {
+		/* permite a inicializacao do atributo de posicao */
 		this.posicao = posicao;
 	}
 
-	/**
-	 * <p>
-	 * An event to make the player pays a value.
-	 * </p>
-	 */
+	/* um evento que faz o jogador pagar um valor */
 	@Override
 	public void evento(JogoFacade jogo) {
-		System.out.println("Voc� pagou 200");
+		System.out.println("Voce pagou 200");
 		jogo.JogadorAtual().pagar(200);
 	}
 

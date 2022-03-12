@@ -2,33 +2,18 @@ package cefet.logradouros;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents the position on the board "Parada Livre".
- * </p>
- *
- */
+/* representa a posicao no tabuleiro parada livre */
 public class ParadaLivre implements Posicao {
 
 	private int posicao;
 
-	/**
-	 * <p>
-	 * Constructor from class ParadaLivre, enables initialization of position
-	 * attribute.
-	 * </p>
-	 * 
-	 * @param int posicao - the position
-	 **/
+	/* construtor da classe ParadaLivre */
 	public ParadaLivre(int posicao) {
+		/* permite a inicializao do atributo posicao */
 		this.posicao = posicao;
 	}
 
-	/**
-	 * <p>
-	 * An event that nothing happens.
-	 * </p>
-	 */
+	/* evento que nada acontece */
 	@Override
 	public void evento(JogoFacade jogo) {
 		System.out.println("Nada Aconteceu.");
@@ -48,5 +33,4 @@ public class ParadaLivre implements Posicao {
 	public String getTipo() {
 		return "Parada Livre";
 	}
-
 }

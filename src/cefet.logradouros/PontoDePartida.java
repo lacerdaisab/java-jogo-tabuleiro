@@ -2,33 +2,18 @@ package cefet.logradouros;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents the starting point position on the board.
- * </p>
- *
- */
+/* representa o ponto inicial no tabuleiro */
 public class PontoDePartida implements Posicao {
 
 	private int posicao;
 
-	/**
-	 * <p>
-	 * Constructor from class PontoDePartida, enables initialization of position
-	 * attribute.
-	 * </p>
-	 * 
-	 * @param int posicao - the position
-	 */
+	/* construtor da classe PontoDePartida */
 	public PontoDePartida(int posicao) {
+		/* permite a inicializacao do atributo posicao */
 		this.posicao = posicao;
 	}
 
-	/**
-	 * <p>
-	 * An event that nothing happens.
-	 * </p>
-	 */
+	/* evento que nada acontece */
 	@Override
 	public void evento(JogoFacade jogo) {
 		System.out.println("Nada aconteceu" + jogo.JogadorAtual().getNome());
@@ -47,5 +32,4 @@ public class PontoDePartida implements Posicao {
 	public String getTipo() {
 		return "Ponto de partida ";
 	}
-
 }

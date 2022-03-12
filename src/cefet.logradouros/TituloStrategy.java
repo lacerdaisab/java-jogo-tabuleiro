@@ -4,12 +4,7 @@ import cefet.exceptions.ValorInvalidoException;
 import cefet.jogo.Jogador;
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents the factory class "Titles(T�tulo)". 
- * </p>
- *
- */
+/* representa a classe factory titulos*/
 public abstract class TituloStrategy {
 
 	protected Jogador dono;
@@ -17,17 +12,10 @@ public abstract class TituloStrategy {
 	protected int posicao;
 	protected int precoDaPropriedade;
 	
-	
-	/**
-	 * <p>
-	 * An event to shows if the property is available to buy and if the player wants to buy it.
-	 * </p>
-	 * 
-	 * @param jogo
-	 */
+	/* evento que mostra se a propriedade esta disponivel para compra e se o jogador quer compra-la */
 	public void evento(JogoFacade jogo) {
 		if (this.dono == null) {
-			System.out.println("O titulo de propriedade " + this.nomeDoTitulo + " est� disponivel por $"
+			System.out.println("O titulo de propriedade " + this.nomeDoTitulo + " esta disponivel por $"
 					+ this.precoDaPropriedade);
 			System.out.println(jogo.JogadorAtual().getNome() + " possui $" + jogo.JogadorAtual().getSaldo());
 			boolean escolha;
@@ -57,33 +45,16 @@ public abstract class TituloStrategy {
 	 * 
 	 * @param jogo
 	 */
+	/* metodo abstrato assinatura para o metodo factory */
 	public abstract void factoryMethod(JogoFacade jogo);
 
-	/**
-	 * <p>
-	 * The abstract method signature to get "Tipo".
-	 * </p>
-	 * 
-	 * @return
-	 */
+	/* metodo abstrato assinatura que pega o tipo */
 	public abstract String getTipo();
 
-	/**
-	 * <p>
-	 * The abstract method signature to show the player's titles.
-	 * </p>
-	 * 
-	 * @return
-	 */
+	/* metodo abstrato assinatura que mostra os titulos do jogador */
 	public abstract String mostrarTitulo();
 
-	/**
-	 * <p>
-	 * The method to sells the property to the bank.
-	 * </p>
-	 * 
-	 * @param jogador - 
-	 */
+	/* metodo que vende as propriedades para o banco */
 	public void venderAoBanco(Jogador jogador) {
 		this.dono = null;
 		jogador.receber(this.precoDaPropriedade);

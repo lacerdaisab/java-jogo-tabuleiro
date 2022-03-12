@@ -3,12 +3,7 @@ package cefet.logradouros;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents the land.
- * </p>
- *
- */
+/* representa o terreno */
 public class Terreno extends TituloStrategy implements Posicao {
 
 	private int aluguel;
@@ -21,29 +16,13 @@ public class Terreno extends TituloStrategy implements Posicao {
 	private String cor;
 	private int numeroDeCasas;
 
-	/**
-	 * <p>
-	 * Constructor from class Terreno, enables initialization of position number,
-	 * land name, property price, rent, rent with one house, rent with two
-	 * houses,rent with three houses, rent with four houses, rent with a hotel, the
-	 * owner and color attributes.
-	 * </p>
-	 * 
-	 * @param         int numeroDePosicao - position name
-	 * @param String  nomeDaCompanhia - company name
-	 * @param         int precoDaPropriedade - property price
-	 * @param         int aluguel - rent
-	 * @param         int aluguelComUmaCasa - rent with one house
-	 * @param         int aluguelComDuasCasas - rent with two houses
-	 * @param         int aluguelComTresCasas - rent with three houses
-	 * @param         int aluguelComQuatroCasas - rent with four houses
-	 * @param         int aluguelComHotel - rent with a hotel
-	 * @param Jogador dono - company's owner
-	 * @param String  color - the color of the land is on the board
-	 */
+	/* construtor da classe Terreno */
 	public Terreno(int numeroDePosicao, String nomeDoTerreno, int precoDaPropriedade, int aluguel,
 			int aluguelComUmaCasa, int aluguelComDuasCasas, int aluguelComTresCasas, int aluguelComQuatroCasas,
 			int aluguelComHotel, int precoDaCasa, String cor) {
+		/* permite a inicializacao do numero da posicao, o nome do terreno, o preco da propriedade, aluguel, 
+		aluguel com uma casa, aluguel com duas casas, aluguel com tres casas, aluguel com quatro casas,
+		aluguel com um hotel, o dono e o atributo cor */
 		this.posicao = numeroDePosicao;
 		this.nomeDoTitulo = nomeDoTerreno;
 		this.precoDaPropriedade = precoDaPropriedade;
@@ -58,21 +37,14 @@ public class Terreno extends TituloStrategy implements Posicao {
 		this.dono = null;
 	}
 
-	/**
-	 * <p>
-	 * </p>
-	 */
+	/* um jogador paga aluguel a outro jogador */
 	@Override
 	public void factoryMethod(JogoFacade jogo) {
 		jogo.JogadorAtual().pagar(this.dono, this.aluguel);
 		System.out.println("Pagou $" + this.aluguel + " ao jogador " + this.dono);
 	}
 
-	/**
-	 * <p>
-	 * Shows the player's titles.
-	 * </p>
-	 **/
+	/* mostra os titulos do jogador */
 	@Override
 	public String mostrarTitulo() {
 		return "[" + this.nomeDoTitulo + "] propriedade " + this.cor + " aluguel " + this.aluguel;
@@ -126,7 +98,6 @@ public class Terreno extends TituloStrategy implements Posicao {
 
 	@Override
 	public boolean hasCor() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -139,6 +110,7 @@ public class Terreno extends TituloStrategy implements Posicao {
 		return true;
 	}
 
+	/* mostra preco do aluguel */
 	public int precoAtualAluguel() {
 		if (this.numeroDeCasas == 0) {
 			return this.aluguel;
@@ -155,13 +127,14 @@ public class Terreno extends TituloStrategy implements Posicao {
 		}
 	}
 
+	/* permite construir */
 	public void construir() {
 		boolean pagou = JogoFacade.getInstance().JogadorAtual().pagar(this.precoDaCasa);
 		if (pagou == true && this.numeroDeCasas < 5) {
 			this.numeroDeCasas += 1;
-			System.out.println("Constru��o realizada com sucesso!");
+			System.out.println("Construcao realizada com sucesso!");
 		} else {
-			System.out.println("N�o foi poss�vel realizar a constru��o!");
+			System.out.println("Nao foi possivel realizar a construcao!");
 		}
 	}
 
@@ -172,14 +145,15 @@ public class Terreno extends TituloStrategy implements Posicao {
 	public int getValorDaConstrucao() {
 		return this.precoDaCasa;
 	}
-
+	
+	/* permite vender casas */
 	public void vender() {
 		if ( this.numeroDeCasas >= 1) {
 			JogoFacade.getInstance().JogadorAtual().pagar(this.precoDaCasa);
 			this.numeroDeCasas -= 1;
 			System.out.println("Venda realizada com sucesso!");
 		} else {
-			System.out.println("N�o foi poss�vel realizar a venda!");
+			System.out.println("Nao foi possivel realizar a venda!");
 		}
 	}
 }

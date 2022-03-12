@@ -2,29 +2,13 @@ package cefet.logradouros;
 
 import cefet.jogo.JogoFacade;
 
-/**
- * <p>
- * Represents the each one of the companies.
- * </p>
- *
- */
+/* representa cada uma das companhias */
 public class Companhia extends TituloStrategy implements Posicao {
-
 	private int multiplicador;
 
-	/**
-	 * <p>
-	 * Constructor from class Companhia, enables initialization of position number,
-	 * company name, property price, the owner and multiplier attributes.
-	 * </p>
-	 * 
-	 * @param int     numeroDePosicao - position name
-	 * @param String  nomeDaCompanhia - company name
-	 * @param int     precoDaPropriedade - property price
-	 * @param Jogador dono - company's owner
-	 * @param int     multiplicador - the rent multiplier
-	 */
+	/* construtor da classe Companhia */
 	public Companhia(int numeroDePosicao, String nomeDaCompanhia, int precoDaPropriedade, int multiplicadoor) {
+		/* inicializa a posicao numero, nome da companhia, preco da propriedade, o dono e o atributo multiplicador */
 		this.posicao = numeroDePosicao;
 		this.nomeDoTitulo = nomeDaCompanhia;
 		this.precoDaPropriedade = precoDaPropriedade;
@@ -32,11 +16,7 @@ public class Companhia extends TituloStrategy implements Posicao {
 		this.multiplicador = multiplicadoor;
 	}
 
-	/**
-	 * <p>
-	 * 
-	 * </p>
-	 */
+	/* compra o titulo de outro jogador */
 	@Override
 	public void factoryMethod(JogoFacade jogo) {
 		int sumDados = jogo.getUltimosDados()[0] + jogo.getUltimosDados()[1];
@@ -45,9 +25,7 @@ public class Companhia extends TituloStrategy implements Posicao {
 		System.out.println("Pagou $" + totalAhPagar + " ao jogador " + this.dono);
 	}
 
-	/**
-	 * Shows the player's titles.
-	 */
+	/* mostra os titulos do jogador */
 	@Override
 	public String mostrarTitulo() {
 		return "[" + this.nomeDoTitulo + "] multiplicador de " + this.multiplicador;
@@ -107,5 +85,4 @@ public class Companhia extends TituloStrategy implements Posicao {
 	public boolean hasTerreno() {
 		return false;
 	}
-
 }

@@ -2,12 +2,7 @@ package cefet.logradouros;
 
 import cefet.jogo.Jogador;
 
-/**
- * <p>
- * Represents an accountant to enables the player to build houses.
- * </p>
- *
- */
+/* representa a contador que permite o jogador de construir casas */
 public class Construtora {
 	private int CONT_ROXO = 3;
 	private int CONT_CIANO = 3;
@@ -23,13 +18,7 @@ public class Construtora {
 		this.jogador = j;
 	}
 
-	/**
-	 * <p>
-	 * It will count how many houses can be build in each color of land.
-	 * </p>
-	 * 
-	 * @return boolean
-	 */
+	/* conta quantas casas podem ser construidas em cada cor dos terrenos */
 	public boolean podeConstruir() {
 		for (TituloStrategy x : jogador.getTitulos()) {
 			if (x.hasCor()) {
@@ -71,13 +60,7 @@ public class Construtora {
 		return false;
 	}
 
-	/**
-	 * <p>
-	 * Allows the player to sell the property.
-	 * </p>
-	 * 
-	 * @return boolean
-	 */
+	/* permite o jogador vender as propriedades */
 	public boolean podeVender() {
 		for (TituloStrategy x : jogador.getTitulos()) {
 			if (x.hasTerreno()) {

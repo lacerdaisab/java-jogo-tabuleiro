@@ -3,34 +3,18 @@ package cefet.logradouros;
 import cefet.jogo.JogoFacade;
 import cefet.lougradouros.Posicao;
 
-/**
- * <p>
- * Represents the position "Sorte ou Rev�s" on the board.
- * </p>
- *
- */
+/* representa a posicao sorte ou reves no tabuleiro */
 public class PosicaoSorteOuReves implements Posicao {
 
 	private int posicaoNoTabuleiro;
 
-	/**
-	 * <p>
-	 * Constructor from class SorteOuReves, enables initialization of position on
-	 * the board attributes.
-	 * </p>
-	 * 
-	 * @param posicao
-	 * @param int     posicaoNoTabuleiro - the player's position on the board
-	 */
+	/* construtor da classe SorteOuReves */
 	public PosicaoSorteOuReves(int posicao) {
+		/* permite a inicializacao do atributo posicao no tabuleiro  */
 		this.posicaoNoTabuleiro = posicao;
 	}
 
-	/**
-	 * <p>
-	 * An event.
-	 * </p>
-	 */
+	/* um evento */
 	@Override
 	public void evento(JogoFacade jogo) {
 		jogo.getCarta().acao(jogo.JogadorAtual());
