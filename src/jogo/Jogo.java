@@ -131,22 +131,22 @@ public class Jogo {
 	}
 
 	private void opcoesConstruir() {
-		System.out.print("Comandos disponiveis:[construir][vender][jogar][status][sair]\nEntre com um comando: ");
+		System.out.print("Comandos disponiveis: [construir][vender][jogar][status][sair]\nEntre com um comando: ");
 		
 	}
 
 	/* mostra as opcoes disponiveis para cada jogador */
 	private void opcoesNormal() {
-		System.out.print("Comandos disponiveis:[jogar][status][sair]\nEntre com um comando: ");
+		System.out.print("Comandos disponiveis: [jogar][status][sair]\nEntre com um comando: ");
 	}
 
 	/* mostra as opcoes disponiveis para o jogador que esta na prisao */
 	private void opcoesPrisao() {
-		System.out.print("Comandos disponiveis:[pagar][carta][jogar][status][sair]\nEntre com um comando: ");
+		System.out.print("Comandos disponiveis: [pagar][carta][jogar][status][sair]\nEntre com um comando: ");
 	}
 	
 	private void opcoesVender() {
-		System.out.println("Comandos disponiveis:[Vender][jogar][status][sair]\nEntre com um comando: ");
+		System.out.println("Comandos disponiveis: [Vender][jogar][status][sair]\nEntre com um comando: ");
 	}
 
 	/* inicia a partida */

@@ -8,9 +8,9 @@ public class Conta {
 	/* atributo saldo */
 	private int saldo;
 	/* metodo contrutor da classe Conta */
-	/* inicia a conta com saldo de 1500 */
+	/* inicia a conta com saldo de 2558 */
 	public Conta() {
-		this.saldo = 1500;
+		this.saldo = 2558;
 	}
 
 	/* metodo deposito */

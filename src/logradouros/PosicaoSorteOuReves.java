@@ -1,7 +1,6 @@
 package logradouros;
 
 import jogo.JogoFacade;
-import logradouros.Posicao;
 
 /* representa a posicao sorte ou reves no tabuleiro */
 public class PosicaoSorteOuReves implements Posicao {

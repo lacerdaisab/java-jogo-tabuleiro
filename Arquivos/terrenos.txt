@@ -2,7 +2,7 @@
 3,Av. Presidente Vargas,60,2,10,30,90,160,250,50,roxo
 4,Av. Nossa Senhora de Copacabana,60,2,10,30,90,160,250,50,roxo
 6,Av. Brigadeiro Faria lima,240,20,100,300,750,925,1100,150,ciano
-8,Av. Rebou�as,220,18,90,250,700,875,1050,150,ciano
+8,Av. Reboucas,220,18,90,250,700,875,1050,150,ciano
 9,AV. 9 de Julho,220,18,90,250,700,875,1050,150,ciano
 11,Av. Europa,200,16,80,220,600,800,1000,100,lilas
 13,Rua Augusta,180,14,70,200,550,750,950,100,lilas
@@ -16,7 +16,7 @@
 29,Jardim Europa,140,12,60,180,500,700,900,100,amarelo
 31,Copacabana,260,22,110,330,800,975,1150,150,verde
 33,Av. Vieira Souto,320,28,150,450,1000,1200,1400,200,verde
-34,Av. Atl�ntica,300,26,130,390,900,1100,1275,200,verde
+34,Av. Atlantica,300,26,130,390,900,1100,1275,200,verde
 36,Ipanema,300,26,130,390,900,1100,1275,200,verde
 38,Jardim Paulista,280,24,120,360,850,1025,1200,150,turquesa
 39,Brooklin,260,22,110,330,800,975,1150,150,turquesa
