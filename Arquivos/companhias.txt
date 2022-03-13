@@ -1,0 +1,6 @@
+5,Companhia Ferroviaria,200,50
+7,Companhia de Viação,200,50
+15,Companhia de Táxi,150,40
+25,Companhia de Navegação,150,40
+32,Companhia de Aviação,200,50
+35,Companhia de Táxi Aéreo,200,50

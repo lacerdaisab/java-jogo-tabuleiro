@@ -1,0 +1,31 @@
+Sua empresa foi multada por poluir demais%pague%200
+O dia do seu casamento chegou, receba os presentes.%presente%50
+Reformou sua casa%pague%50
+Seu livro ser� publicado por uma grande editora%receba%50
+Utilize este cart�o para se livrar da pris�o%seLivraDaprisao%0
+V� para a pris�o%vaiParaPrisao%0
+V� at� o in�cio%inicio%0
+Suas a��es na bolsa de valores est�o em alta%recebe%100
+Voc� vai come�ar um curso de MBA e ganhou um bom desconto para pagamento a vista%pague%20
+F�rias com a familia pague%pague%20
+Recebeu o pr�mio de profissional do ano e ganhou um carro%receba%10
+Jogue os dados novamente%dados%0
+Sua empresa ir� patrocinar uma expedi��o a Ant�rtida%pague%50
+Vendeu a parte de sua empresa para um investidor%receba%75
+Apostou no cavalo azar�o e ganhou%receba%100
+A falta de chuva prejudicou a colheita%pague%45
+Recebeu uma heran�a inesperada%receba%75
+Seu filho decidiu fazer interc�mbio%pague%20
+Sua casa ser� desapropriada para a constru��o de um metro e ganhar� uma gorda indeniza��o%receba%60
+Venceu licita��o para grande obra%receba%150
+Seu iate afundou, mas voc� tinha seguro! %receba%25
+Seus funcion�rios entraram em greve%pague%30
+Comprou obra de arte falsificada%pague%22
+Seu jatinho precisa de manuten��o%pague%9
+Renovou a frota de carros da sua empresa%pague%100
+Ganhou sozinho na loteria%receba%80
+Atualizou os computadores da sua empresa%pague%30
+Um navio afundou com suas mercadorias (n�o tinha seguro)%pague%40
+Produ��o de leite de suas fazendas ficou abaixo da expectativa%pague%60
+Tirou primeiro lugar no torneio de golfe receba%receba%100
+Sorte se tirou o n�mero par da soma dos dados e rev�s caso contr�rio%sorteOuReves%100

@@ -1,0 +1,5 @@
+0,Ponto de partida
+18,Lucros e Dividendos
+20,Parada Livre
+24,Imposto de Renda
+40,Ponto de partida
