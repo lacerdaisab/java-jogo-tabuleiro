@@ -120,7 +120,7 @@ public class Jogador {
 	public void jogada(int dado1, int dado2, JogoFacade jogo) {
 		avancarCasas(dado1, dado2);
 		System.out.println(
-				this.toString() + "tirou " + dado1 + "," + dado2 + " e o peao avancou " + jogo.getPosicaoAtual());
+				this.toString() + "tirou no primeiro dado o numero " + dado1 + ", tirou no segundo dado o numero " + dado2 + " e o peao esta na posicao " + jogo.getPosicaoAtual());
 	}
 
 	/* metodo que avanca para a proxima posicao */

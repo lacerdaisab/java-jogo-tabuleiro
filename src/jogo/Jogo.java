@@ -31,6 +31,32 @@ public class Jogo {
 
 	/* define o numero de jogadores */
 	private void nJogadores() {
+		System.out.println("Bem-vindo ao jogo");
+		System.out.println("Conheça nosso tabuleiro!!");
+		System.out.println("                                       ");
+		System.out.println("                                       ");
+		System.out.println("                                       ");
+		System.out.println("F    P   E   CL   N   P   P   P   E   C");
+		System.out.println("                                       ");
+		System.out.println("P                 JOGO                P");
+		System.out.println("                                       ");
+		System.out.println("P         Vida! sorte ou azar?        N");
+		System.out.println("                                       ");
+		System.out.println("P                                     P");
+		System.out.println("                                       ");
+		System.out.println("CC           CEFET/RJ -NI             P");
+		System.out.println("                                       ");
+		System.out.println("P                                     P");
+		System.out.println("                                       ");
+		System.out.println("E                                     E");
+		System.out.println("                                       ");
+		System.out.println("P                                     P");
+		System.out.println("                                       ");
+		System.out.println("N                                     N");
+		System.out.println("                                       ");
+		System.out.println("D/V  P   E   P    N   P   E   N   P   I ");
+		System.out.println("                                       ");
+		System.out.println("                                       ");
 		System.out.print("Digite o numero de jogadores [2 - 8]: ");
 		int numero = 0;
 		try {
